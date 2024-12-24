@@ -1,8 +1,6 @@
 package javaStudy.basic.reflect;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 /**
  * @author: li
@@ -45,6 +43,38 @@ public class BasicClass {
         // 2.getMethods() 返回某个类的所有公用(public)方法，包括其继承类的公用方法
         Method[] methods = classA.getMethods();
         // 3.getMethod(String name) 返回一个指定的方法 第一个参数为方法名称
-        Method method = classA.getMethod("setName", String.class);
+        Method method1 = classA.getMethod("setName", String.class);
+
+        /*
+         * getMethods和getDeclaredMethods的区别
+         * getDeclaredMethods是获取该类所有的方法及接口声明的方法
+         * getMethods是获取该类及继承类的所有公共方法
+        */
+
+        // 获取构造器
+        // 获取所有构造器 getConstructors
+        Constructor<?>[] constructors = classA.getConstructors();
+
+        // 获取类的成员变量
+        // getFiled:访问公有的成员变量
+        // getDeclaredField:所有已声明的成员变量(但得不到父类的成员变量)
+        Field[] fields = classA.getDeclaredFields();
+        for (Field field : fields) {
+            // 设置访问权限 private属性即使不使用下面这个语句也可以访问
+            field.setAccessible(true);
+            String fieldString = "";
+            // 获取字段修饰符
+            fieldString += Modifier.toString(field.getModifiers()) + " "; //private
+            // 获取字段类型
+            fieldString += field.getType().getSimpleName() + " ";
+            // 获取字段名
+            fieldString += field.getName();
+            fieldString += ";";
+            System.out.println(fieldString);
+        }
+
+        //调用方法,获取方法之后,使用invoke()调用该方法
+
+
     }
 }
