@@ -81,4 +81,55 @@
                     }
 
 2.Vector
-    (1)概述:Vector可以实现可增长的对象数组,可以使用整数索引进行访问的组件.但是Vector大小是可以增加或者减少的
+    (1)概述:Vector可以实现可增长的对象数组,可以使用整数索引进行访问的组件.但是Vector大小是可以增加或者减少的,便于后续的添加或删除操作
+    public class Vector<E>
+        extends AbstractList<E>
+        implements List<E>, RandomAccess, Cloneable, java.io.Serializable
+        实现List<>,继承AbstractList类:可以将其看做队列,支持相关的添加、删除、修改、遍历等功能
+        实现RandomAccess接口:提供了随机访问功能,能够直接访问元素
+        实现了Cloneable接口:支持clone()方法,可以被克隆
+        vector底层数组不加transient,序列化的时候会全部复制
+
+    (2)增删改查:
+    I:查:vector.elementAt(int index)
+    II:改:vector.setElementAt(E obj,int index)
+    III:删:removeElementAt(int index)
+    IV:增:insertElementAt(E obj, int index)
+          addElement(E obj)
+
+    (3)初始容量和扩容:
+    I:扩容方式和ArrayList一样,通过扩容增量来决定扩容的大小(初始容量和扩容大小:capacityIncrement)
+
+    (4)线程安全:
+    vector大部分方法都使用了synchronized修饰符,属于线程安全的集合类
+
+3.Stack
+     (1)概述:最常用的结构,继承了Vector类,是一个后进先出(LIFO)的对象堆栈
+
+     (2)通过5个操作扩展Vector
+        I:empty():测试堆栈是否为空
+        II:peek():查看堆栈顶部的对象,不移除,仅查看
+        III:pop():移除堆栈顶部的对象,并作为返回值返回
+        IV:push(E item):将项压入堆栈顶部
+        V:search(Object o):返回对象在堆栈中的位置,以1为基数
+
+
+
+4.三个集合类的区别
+    (1)ArrayList的优缺点:
+        - 优点:I:底层以数组实现,可以随机访问,实现了RandomAccess接口,get效率高
+              II:ArrayList在顺序添加一个元素的时候非常方便
+        - 缺点:I:删除元素的时候，涉及到元素的复制,如果需要复制的元素很多,消耗性能
+              II:插入元素的时候(非顺序),涉及到元素的复制,如果要复制很多元素,消耗性能
+        - 总结:ArrayList适合顺序添加,随机访问的场景
+
+    (2)ArrayList和Vector的区别
+        - Vector:线程安全;ArrayList:线程非安全
+        - Vector:可以指定增长因子,扩容的时候会根据增长因子来扩容
+
+
+
+
+
+
+

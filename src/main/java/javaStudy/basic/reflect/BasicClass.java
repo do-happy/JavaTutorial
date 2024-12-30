@@ -1,6 +1,7 @@
 package javaStudy.basic.reflect;
 
 import java.lang.reflect.*;
+import java.util.Vector;
 
 /**
  * @author: li
@@ -18,7 +19,6 @@ public class BasicClass {
         //3.调用某个对象的getClass()方法
         People people = new People();
         Class<?> classC = people.getClass();
-
 
         // 判断是否为某个类的实例 a instanceof b 判断a是否为b的实例
         People tom = new People();
@@ -74,7 +74,6 @@ public class BasicClass {
         }
 
         //调用方法,获取方法之后,使用invoke()调用该方法
-
 
     }
 }

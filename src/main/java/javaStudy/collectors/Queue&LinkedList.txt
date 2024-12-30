@@ -1,0 +1,10 @@
+1.LinkedList
+    (1)概述:LinkedList与ArrayList一样实现List接口,只是ArrayList是List接口的大小可变数组的实现,
+           LinkedList是List接口链表的实现。基于链表实现的方式使得LinkedList在插入和删除时更优于ArrayList，而随机访问则比ArrayList逊色些。
+           除了实现 List 接口外，LinkedList 类还为在列表的开头及结尾 get、remove 和 insert 元素提供了统一的命名方法。这些操作允许将链接列表用作堆栈、队列或双端队列。
+    (2)源码分析:
+            I:定义
+                public class LinkedList<E>
+                extends AbstractSequentialList<E>
+                implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+                AbstractSequentialList:提供List接口的骨干实现,最大限度减少
