@@ -10,25 +10,33 @@ public class WorkTimeCalculator {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("请输入开始工作的年份");
-        int startYear = sc.nextInt();
-        System.out.println("请输入开始工作的月份");
-        int startMonth = sc.nextInt();
-        System.out.println("请输入开始工作的日");
-        int startDay = sc.nextInt();
-        System.out.println("请输入开始工作当天的起始时间（24小时制，如0830表示8点30分）");
-        int startTimeInput = sc.nextInt();
-        int startTimeHour = startTimeInput / 100;
-        int startTimeMinute = startTimeInput % 100;
-        LocalTime startTime = LocalTime.of(startTimeHour, startTimeMinute);
+//        System.out.println("请输入开始工作的年份");
+//        int startYear = sc.nextInt();
+//        System.out.println("请输入开始工作的月份");
+//        int startMonth = sc.nextInt();
+//        System.out.println("请输入开始工作的日");
+//        int startDay = sc.nextInt();
+//        System.out.println("请输入开始工作当天的起始时间（24小时制，如0830表示8点30分）");
+//        int startTimeInput = sc.nextInt();
+//        int startTimeHour = startTimeInput / 100;
+//        int startTimeMinute = startTimeInput % 100;
+//        LocalTime startTime = LocalTime.of(startTimeHour, startTimeMinute);
 
-        System.out.println("请输入每次工作的时长（分钟）");
-        int workTime = sc.nextInt();
-        System.out.println("请输入工作的休息间隔（分钟）");
-        int intervalTime = sc.nextInt();
+//        System.out.println("请输入每次工作的时长（分钟）");
+//        int workTime = sc.nextInt();
+//        System.out.println("请输入工作的休息间隔（分钟）");
+//        int intervalTime = sc.nextInt();
 
-        System.out.println("请输入所选择的年份和月份和日期");
-        int selectYear = sc.nextInt();
+
+        int startYear = 2025;
+        int startMonth = 1;
+        int startDay = 1;
+        LocalTime startTime = LocalTime.of(4, 0);
+        int workTime = 120;
+        int intervalTime = 480;
+
+        System.out.println("请输入月份和日期");
+        int selectYear = 2025;
         int selectMonth = sc.nextInt();
         int selectDay = sc.nextInt();
         sc.close();
